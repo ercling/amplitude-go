@@ -16,6 +16,12 @@ const (
 	ApiEndpoint      = "https://api.amplitude.com/httpapi"
 )
 
+type EventAugment struct {
+	EventID   int    `json:"event_id,omitempty"`
+	SessionID int64  `json:"session_id,omitempty"`
+	InsertID  string `json:"insert_id,omitempty"`
+}
+
 type Event struct {
 	UserId             string                 `json:"user_id,omitempty"`
 	DeviceId           string                 `json:"device_id,omitempty"`
@@ -44,6 +50,7 @@ type Event struct {
 	Ip                 string                 `json:"ip,omitempty"`
 	IDFA               string                 `json:"idfa,omitempty"`
 	ADID               string                 `json:"adid,omitempty"`
+	EventAugment
 }
 
 type Client struct {
